@@ -45,8 +45,7 @@ export default function Home({ locations }) {
 export async function getServerSideProps(context) {
 
   const res = await fetch(`${server}/api/data`);
-  const data = await res.json();
-  const locations = data.features;
+  const locations = await res.json();
 
   return {
     props: {
