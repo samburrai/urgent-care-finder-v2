@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { server } from "../config";
+import Navigation from '../components/navigation';
+import Footer from '../components/footer';
 
 export default function Home({ locations }) {
   return (
@@ -12,28 +14,27 @@ export default function Home({ locations }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <nav>
-          Urgent Care Finder
-        </nav>
-      </header>
+      <Navigation />
 
       <main className={styles.main}>
         <div className={styles.list}>
           <ul>
-            {locations.map(location => (
-              <li key={location.properties.ID}>
-                <h2>{location.properties.NAME}</h2>
+            {locations.map(urgentCareCenter => (
+              <li key={urgentCareCenter.properties.ID}>
+                <h2>{urgentCareCenter.properties.NAME}</h2>
                 <address>
-                  {location.properties.ADDRESS}<br />
-                  {location.properties.CITY}, {location.properties.STATE} {location.properties.ZIP}<br />
-                  {location.properties.TELEPHONE}
+                  {urgentCareCenter.properties.ADDRESS}<br />
+                  {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
+                  {urgentCareCenter.properties.TELEPHONE}
                 </address>
                 <div>
-                  <Link href={location.properties.ID}>
+                  <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
                     <a>Schedule a visit</a>
                   </Link>
-                  <a href={"tel:" + location.properties.TELEPHONE}>Call</a>
+                  <Link href={urgentCareCenter.properties.ID}>
+                    <a>More information</a>
+                  </Link>
+                  <a href={"tel:" + urgentCareCenter.properties.TELEPHONE}>Call</a>
                 </div>
               </li>
             ))}
@@ -42,9 +43,7 @@ export default function Home({ locations }) {
         <div className={styles.map}>Map</div>
       </main>
 
-      <footer>
-        Footer
-      </footer>
+      <Footer />
     </div>
   )
 }
