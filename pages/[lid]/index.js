@@ -18,17 +18,20 @@ export default function Location ({ urgentCareCenter }) {
       <Navigation />
 
       <main>
-        <h1>Location</h1>
-        <h2>{urgentCareCenter.properties.NAME}</h2>
-        <address>
-          {urgentCareCenter.properties.ADDRESS}<br />
-          {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
-          {urgentCareCenter.properties.TELEPHONE}
-        </address>
-        <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
-          <pfe-cta priority="primary"><a>Schedule a visit</a></pfe-cta>
-        </Link>
-        <pfe-cta priority="secondary"><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
+        <section>
+          <h1>{urgentCareCenter.properties.NAME}</h1>
+          <address>
+            {urgentCareCenter.properties.ADDRESS}<br />
+            {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
+            {urgentCareCenter.properties.TELEPHONE}
+          </address>
+        </section>
+        <section>
+          <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
+            <pfe-cta priority="primary"><a>Schedule a visit</a></pfe-cta>
+          </Link>
+          <pfe-cta priority="secondary"><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
+        </section>
       </main>
 
       <Footer />

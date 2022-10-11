@@ -1,5 +1,10 @@
 .nav {
   background-color: black;
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
 }

@@ -11,8 +11,18 @@ body {
   box-sizing: border-box;
 }
 
-#__next {
+#__next,
+#__next > div {
   height: 100%;
+}
+
+section {
+  padding: 2rem;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
 }
 
 @media (prefers-color-scheme: dark) {

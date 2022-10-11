@@ -18,10 +18,12 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
       <Navigation />
 
       <main>
-        <h1>Schedule a visit</h1>
-        <h2>{urgentCareCenter.properties.NAME}</h2>
+        <section>
+          <h1>Schedule a visit</h1>
+          <h2>{urgentCareCenter.properties.NAME}</h2>
+        </section>
         {dates.map(date => (
-          <div key={date.date}>
+          <section key={date.date}>
             <h3>
               <pfe-datetime 
                 type="local"
@@ -45,7 +47,7 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
         ))}
       </main>
 
