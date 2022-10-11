@@ -11,8 +11,29 @@
 
 .list {
   min-width: 400px;
+  max-width: 400px;
   overflow: scroll;
   height: calc(100vh - 100px);
+}
+
+.list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.list ul li {
+  padding: 1rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.list ul li h2 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.list ul li address {
+  margin-bottom: 0.5rem;
 }
 
 .map {

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { server } from "../config";
 
@@ -21,13 +22,19 @@ export default function Home({ locations }) {
         <div className={styles.list}>
           <ul>
             {locations.map(location => (
-              <li key={location.attributes.ID}>
-                <h2>{location.attributes.NAME}</h2>
+              <li key={location.properties.ID}>
+                <h2>{location.properties.NAME}</h2>
                 <address>
-                  {location.attributes.ADDRESS}
-                  {location.attributes.CITY}, {location.attributes.STATE} {location.attributes.ZIP}
-                  {location.attributes.TELEPHONE}
+                  {location.properties.ADDRESS}<br />
+                  {location.properties.CITY}, {location.properties.STATE} {location.properties.ZIP}<br />
+                  {location.properties.TELEPHONE}
                 </address>
+                <div>
+                  <Link href={location.properties.ID}>
+                    <a>Schedule a visit</a>
+                  </Link>
+                  <a href={"tel:" + location.properties.TELEPHONE}>Call</a>
+                </div>
               </li>
             ))}
           </ul>
@@ -43,8 +50,7 @@ export default function Home({ locations }) {
 }
 
 export async function getServerSideProps(context) {
-
-  const res = await fetch(`${server}/api/data`);
+  const res = await fetch(`${server}/api/locations`);
   const locations = await res.json();
 
   return {
