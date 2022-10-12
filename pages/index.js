@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 import { server } from "../config";
 import Navigation from '../components/navigation';
