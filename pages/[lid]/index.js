@@ -9,8 +9,8 @@ export default function Location ({ urgentCareCenter }) {
   return (
     <div>
       <Head>
-        <title>Urgent Care Finder - Location</title>
-        <meta name="description" content="Urgent Care Finder - Location" />
+        <title>NC Urgent Care Finder - Location</title>
+        <meta name="description" content="NC Urgent Care Finder - Location" />
       </Head>
 
       <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.12.3/dist/pfe-cta.min.js" />
@@ -27,10 +27,8 @@ export default function Location ({ urgentCareCenter }) {
           </address>
         </section>
         <section>
-          <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
-            <pfe-cta priority="primary" class="push-right"><a>Schedule a visit</a></pfe-cta>
-          </Link>
-          <pfe-cta priority="secondary"><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
+        <pfe-cta priority="primary" class="push-right"><Link href={urgentCareCenter.properties.ID + "/schedule-visit"} passHref><a>Schedule a visit</a></Link></pfe-cta>
+        <pfe-cta priority="secondary"><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
         </section>
         <section>
           <h2>Open until 8:00 pm</h2>

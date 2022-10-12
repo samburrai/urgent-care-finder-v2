@@ -10,7 +10,7 @@ export default function Home({ locations }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Urgent Care Finder</title>
+        <title>NC Urgent Care Finder</title>
         <meta name="description" content="Urgent Care Finder" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -34,12 +34,8 @@ export default function Home({ locations }) {
                   <a href={"tel:" + urgentCareCenter.properties.TELEPHONE}>{urgentCareCenter.properties.TELEPHONE}</a>
                 </address>
                 <div>
-                  <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
-                    <pfe-cta priority="primary" class="push-right"><a>Schedule a visit</a></pfe-cta>
-                  </Link>
-                  <Link href={urgentCareCenter.properties.ID}>
-                    <pfe-cta><a>More information</a></pfe-cta>
-                  </Link>
+                <pfe-cta priority="primary" class="push-right"><Link href={urgentCareCenter.properties.ID + "/schedule-visit"} passHref><a>Schedule a visit</a></Link></pfe-cta>
+                <pfe-cta><Link href={urgentCareCenter.properties.ID} passHref><a>More information</a></Link></pfe-cta>
                 </div>
               </li>
             ))}

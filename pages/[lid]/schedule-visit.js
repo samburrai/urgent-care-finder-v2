@@ -9,8 +9,8 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
   return (
     <div>
       <Head>
-        <title>Urgent Care Finder - Schedule Visit</title>
-        <meta name="description" content="Urgent Care Finder - Schedule Visit" />
+        <title>NC Urgent Care Finder - Schedule Visit</title>
+        <meta name="description" content="NC Urgent Care Finder - Schedule Visit" />
       </Head>
 
       <Script type="module" src="https://unpkg.com/@patternfly/pfe-datetime@1.12.3/dist/pfe-datetime.min.js" />

@@ -6,7 +6,7 @@ export default function Navigation() {
     <header>
       <nav className={styles.nav}>
         <Link href="/">
-          <a>Urgent Care Finder</a>
+          <a>NC Urgent Care Finder</a>
         </Link>
       </nav>
     </header>
