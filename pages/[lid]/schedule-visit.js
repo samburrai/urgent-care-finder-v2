@@ -1,11 +1,26 @@
 import Head from 'next/head'
 import Script from 'next/script'
+import { useRef, useState } from 'react'
 import Footer from '../../components/footer'
 import Navigation from '../../components/navigation'
 import { server } from '../../config'
 import styles from '../../styles/ScheduleVisit.module.css'
 
 export default function ScheduleVisit({ urgentCareCenter, dates }) {
+  const dialogRef = useRef(null);
+  const [appointmentTime, setAppointmentTime] = useState({
+    title: null
+  });
+
+  const schedule = (appointment) => {
+    setAppointmentTime(appointment);
+    dialogRef.current.showModal();
+  };
+
+  const closeModal = () => {
+    dialogRef.current.close();
+  }
+
   return (
     <div>
       <Head>
@@ -15,6 +30,8 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
 
       <Script type="module" src="https://unpkg.com/@patternfly/pfe-datetime@1.12.3/dist/pfe-datetime.min.js" />
       <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.12.3/dist/pfe-cta.min.js" />
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-button@1.12.3/dist/pfe-button.min.js" />
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-icon@1.12.3/dist/pfe-icon.min.js" />
 
       <Navigation />
 
@@ -39,14 +56,14 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
                 <ul className={styles.list}>
                   {date.appointmentSlots.map(appointment => (
                     <li key={appointment.date}>
-                      <a href="" className={styles.button}>
+                      <button className={styles.button} onClick={() => schedule(appointment)}>
                         <pfe-datetime
                           type="local"
                           hour="numeric"
                           minute="numeric"
                           datetime={new Date(appointment.date)}>
                         </pfe-datetime>
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -64,6 +81,30 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
             <pfe-cta><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
           </section>
         </div>
+        <dialog ref={dialogRef}>
+          <h2>In clinic urgent care visit</h2>
+          <h3>{urgentCareCenter.properties.NAME}</h3>
+          <p>
+            <pfe-icon size="3x" icon="rh-icon-clock"></pfe-icon>
+            <pfe-datetime
+              type="local"
+              day="numeric"
+              month="long"
+              year="numeric"
+              hour="numeric"
+              minute="numeric"
+              datetime={new Date(appointmentTime.date)}>
+            </pfe-datetime>
+          </p>
+          <address className="push-bottom">
+            {urgentCareCenter.properties.ADDRESS}<br />
+            {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
+            {urgentCareCenter.properties.TELEPHONE}
+          </address>
+          <textarea className={styles.textarea} placeholder='What is the nature of the visit?'></textarea>
+          <pfe-button class="push-right" variant="primary"><button>Schedule as guest</button></pfe-button>
+          <pfe-button variant="secondary" onClick={closeModal}><button>Cancel</button></pfe-button>
+        </dialog>
       </main>
 
       <Footer />

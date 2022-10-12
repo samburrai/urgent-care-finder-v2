@@ -69,6 +69,10 @@ footer {
   margin-right: var(--spacer);
 }
 
+.push-bottom {
+  margin-bottom: var(--spacer);
+}
+
 .flex {
   display: flex;
 }
