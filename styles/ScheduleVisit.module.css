@@ -16,6 +16,7 @@
 
 .flex {
   display: flex;
+  flex-direction: column;
 }
 
 .flex .times {
@@ -24,4 +25,10 @@
 
 .flex .details {
   flex: 1;
+}
+
+@media (min-width: 1172px) {
+  .flex {
+    flex-direction: row;
+  }
 }
