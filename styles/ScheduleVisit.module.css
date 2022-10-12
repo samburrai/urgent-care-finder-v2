@@ -27,6 +27,16 @@
   flex: 1;
 }
 
+.closeModalButton {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border: none;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 .textarea {
   display: block;
   width: 100%;

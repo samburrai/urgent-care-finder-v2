@@ -82,6 +82,9 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
           </section>
         </div>
         <dialog ref={dialogRef}>
+          <button className={styles.closeModalButton} onClick={closeModal}>
+            <pfe-icon icon="web-icon-close"></pfe-icon>
+          </button>
           <h2>In clinic urgent care visit</h2>
           <h3>{urgentCareCenter.properties.NAME}</h3>
           <p>
