@@ -14,6 +14,8 @@ export default function Home({ locations }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.12.3/dist/pfe-cta.min.js" />
+
       <Navigation />
 
       <main className={styles.main}>
