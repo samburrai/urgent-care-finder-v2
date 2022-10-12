@@ -1,10 +1,17 @@
 .nav {
-  background-color: black;
+  background-color: var(--light-green);
   color: white;
   padding: 1rem 2rem;
+  font-weight: bold;
 }
 
 .nav a {
   text-decoration: none;
   color: white;
+}
+
+@media (min-width: 772px) {
+  .nav {
+    padding: 1rem 4rem;
+  }
 }

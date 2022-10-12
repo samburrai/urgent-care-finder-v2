@@ -17,6 +17,9 @@ export default function Home({ locations }) {
       <Navigation />
 
       <main className={styles.main}>
+        <div className={styles.map}>
+          {/* Map */}
+        </div>
         <div className={styles.list}>
           <ul>
             {locations.map(urgentCareCenter => (
@@ -25,22 +28,20 @@ export default function Home({ locations }) {
                 <address>
                   {urgentCareCenter.properties.ADDRESS}<br />
                   {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
-                  {urgentCareCenter.properties.TELEPHONE}
+                  <a href={"tel:" + urgentCareCenter.properties.TELEPHONE}>{urgentCareCenter.properties.TELEPHONE}</a>
                 </address>
                 <div>
                   <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
-                    <a>Schedule a visit</a>
+                    <pfe-cta priority="primary" class="push-right"><a>Schedule a visit</a></pfe-cta>
                   </Link>
                   <Link href={urgentCareCenter.properties.ID}>
-                    <a>More information</a>
+                    <pfe-cta><a>More information</a></pfe-cta>
                   </Link>
-                  <a href={"tel:" + urgentCareCenter.properties.TELEPHONE}>Call</a>
                 </div>
               </li>
             ))}
           </ul>
         </div>
-        <div className={styles.map}>Map</div>
       </main>
 
       <Footer />

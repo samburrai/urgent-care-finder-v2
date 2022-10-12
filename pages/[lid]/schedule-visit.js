@@ -13,42 +13,57 @@ export default function ScheduleVisit({ urgentCareCenter, dates }) {
         <meta name="description" content="Urgent Care Finder - Schedule Visit" />
       </Head>
 
-      <Script type="module" src="https://unpkg.com/@patternfly/pfe-datetime@latest/dist/pfe-datetime.min.js" />
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-datetime@1.12.3/dist/pfe-datetime.min.js" />
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.12.3/dist/pfe-cta.min.js" />
 
       <Navigation />
 
       <main>
-        <section>
-          <h1>Schedule a visit</h1>
-          <h2>{urgentCareCenter.properties.NAME}</h2>
-        </section>
-        {dates.map(date => (
-          <section key={date.date}>
-            <h3>
-              <pfe-datetime 
-                type="local"
-                day="numeric"
-                month="long"
-                year="numeric"
-                datetime={new Date(date.date)}>
-              </pfe-datetime>
-            </h3>
-            <ul className={styles.list}>
-              {date.appointmentSlots.map(appointment => (
-                <li key={appointment.date}>
-                  <a href="" className={styles.button}>
-                    <pfe-datetime
-                      type="local"
-                      hour="numeric"
-                      minute="numeric"
-                      datetime={new Date(appointment.date)}>
-                    </pfe-datetime>
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <div className={styles.flex}>
+          <div className={styles.times}>
+            <section>
+              <h1>Schedule a visit</h1>
+              <h2>{urgentCareCenter.properties.NAME}</h2>
+            </section>
+            {dates.map(date => (
+              <section key={date.date}>
+                <h3>
+                  <pfe-datetime 
+                    type="local"
+                    day="numeric"
+                    month="long"
+                    year="numeric"
+                    datetime={new Date(date.date)}>
+                  </pfe-datetime>
+                </h3>
+                <ul className={styles.list}>
+                  {date.appointmentSlots.map(appointment => (
+                    <li key={appointment.date}>
+                      <a href="" className={styles.button}>
+                        <pfe-datetime
+                          type="local"
+                          hour="numeric"
+                          minute="numeric"
+                          datetime={new Date(appointment.date)}>
+                        </pfe-datetime>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+          <section className={styles.details}>
+            <address>
+              {urgentCareCenter.properties.ADDRESS}<br />
+              {urgentCareCenter.properties.CITY}, {urgentCareCenter.properties.STATE} {urgentCareCenter.properties.ZIP}<br />
+              {urgentCareCenter.properties.TELEPHONE}
+            </address>
+            <h3>Hours</h3>
+            <p>Mon - Sun: 8:00 am to 8:00 pm</p>
+            <pfe-cta><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
           </section>
-        ))}
+        </div>
       </main>
 
       <Footer />

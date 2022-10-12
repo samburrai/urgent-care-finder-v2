@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&family=Red+Hat+Text:wght@400;700&display=swap');
+
+:root {
+  --accent-color: #F2295F;
+  --accent-color-darker: #c12750;
+  --dark-color: #131426;
+  --light-green: #15BF81;
+  --dark-green: #168C61;
+  --neon-green: #16F28B;
+  --spacer: 1rem;
+  --pfe-theme--color--ui-accent: var(--accent-color);
+  --pfe-theme--color--ui-accent--hover: var(--accent-color-darker);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Red Hat Text', sans-serif;
+  color: var(--dark-color);
   height: 100%;
 }
 
@@ -20,9 +34,54 @@ section {
   padding: 2rem;
 }
 
+section.light {
+  background-color: #ccc;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+address {
+  font-style: normal;
+}
+
 footer {
   position: sticky;
   top: 100vh;
+}
+
+.push-right {
+  margin-right: var(--spacer);
+}
+
+.flex {
+  display: flex;
+}
+
+section.complimentary {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+@media (min-width: 772px) {
+  section {
+    padding: 2rem 4rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

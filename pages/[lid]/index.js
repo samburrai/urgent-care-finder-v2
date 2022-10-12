@@ -13,7 +13,7 @@ export default function Location ({ urgentCareCenter }) {
         <meta name="description" content="Urgent Care Finder - Location" />
       </Head>
 
-      <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@latest/dist/pfe-cta.min.js" />
+      <Script type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.12.3/dist/pfe-cta.min.js" />
 
       <Navigation />
 
@@ -28,9 +28,35 @@ export default function Location ({ urgentCareCenter }) {
         </section>
         <section>
           <Link href={urgentCareCenter.properties.ID + "/schedule-visit"}>
-            <pfe-cta priority="primary"><a>Schedule a visit</a></pfe-cta>
+            <pfe-cta priority="primary" class="push-right"><a>Schedule a visit</a></pfe-cta>
           </Link>
           <pfe-cta priority="secondary"><a href={"https://maps.google.com/maps?daddr=" + urgentCareCenter.properties.ADDRESS + " " + urgentCareCenter.properties.CITY + " " + urgentCareCenter.properties.STATE + " " + urgentCareCenter.properties.ZIP}>Get directions</a></pfe-cta>
+        </section>
+        <section>
+          <h2>Open until 8:00 pm</h2>
+          <h3>Urgent Care Hours</h3>
+          <p>Mon - Sun: 8:00 am to 8:00 pm</p>
+        </section>
+        <section className="flex complimentary">
+          <div>
+            <h2>Treatments</h2>
+            <ul>
+              <li>Sprains, strains &amp; broken bones</li>
+              <li>Dislocations</li>
+              <li>Cuts, scrapes, wounds, abrasions &amp; burns</li>
+              <li>Wound care Urinary tract infections</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Services</h2>
+            <ul>
+              <li>Digital X-rays</li>
+              <li>EKG</li>
+              <li>Sutures &amp; stitches</li>
+              <li>Labs &amp; X-rays</li>
+              <li>Physicals Vaccinations &amp; immunizations</li>
+            </ul>
+          </div>
         </section>
       </main>
 
