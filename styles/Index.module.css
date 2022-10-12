@@ -1,0 +1,13 @@
+.index {
+  background-color: var(--light-green);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.index h1 {
+  font-size: 4rem;
+  color: white;
+}
