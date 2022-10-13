@@ -127,11 +127,6 @@
   .main {
     flex-direction: row-reverse;
   }
-
-  .list ul li {
-    /* padding-left: 4rem;
-    padding-right: 4rem; */
-  }
 }
 
 @media (prefers-color-scheme: dark) {
