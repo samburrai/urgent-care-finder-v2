@@ -38,7 +38,7 @@
 }
 
 .map {
-  flex: 1;
+  /* flex: 1; */
   height: 100%;
 }
 
@@ -126,6 +126,10 @@
 @media (min-width: 772px) {
   .main {
     flex-direction: row-reverse;
+  }
+
+  .map {
+    flex: 1;
   }
 }
 
