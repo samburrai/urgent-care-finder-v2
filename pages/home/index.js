@@ -24,7 +24,10 @@ export default function Home({ locations }) {
     loader.load().then(() => {
       const newMap = new google.maps.Map(map.current, {
         center: { lat: 35.7796, lng: -78.6382 },
-        zoom: 8,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        streetViewControl: false,
+        zoom: 10,
       });
 
       const infoWindow = new google.maps.InfoWindow();
