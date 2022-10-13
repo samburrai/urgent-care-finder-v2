@@ -82,6 +82,19 @@ section.complimentary {
   color: white;
 }
 
+.circleLink {
+  display: inline-block;
+  border: 1px solid #efefef;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
 @media (min-width: 772px) {
   section {
     padding: 2rem 4rem;

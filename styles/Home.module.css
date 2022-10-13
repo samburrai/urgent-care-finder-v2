@@ -19,6 +19,7 @@
 .list ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .list ul li {
@@ -38,6 +39,7 @@
 
 .map {
   flex: 1;
+  height: 100%;
 }
 
 .title a {
@@ -106,9 +108,12 @@
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.address {
+  flex: 2;
+}
+
+.moreInfo {
+  flex: 1;
 }
 
 @media (max-width: 600px) {
@@ -121,6 +126,11 @@
 @media (min-width: 772px) {
   .main {
     flex-direction: row-reverse;
+  }
+
+  .list ul li {
+    /* padding-left: 4rem;
+    padding-right: 4rem; */
   }
 }
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.3",
     "@patternfly/pfe-cta": "^1.12.3",
     "@patternfly/pfe-datetime": "^1.12.3",
     "next": "12.3.1",
